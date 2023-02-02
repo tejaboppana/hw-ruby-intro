@@ -4,14 +4,39 @@
 
 def sum arr
   # YOUR CODE HERE
+  sum = 0
+  arr.each {|a| sum+=a}
+  return sum
 end
 
 def max_2_sum arr
   # YOUR CODE HERE
+  if arr.length == 0
+    return 0
+  elsif arr.length == 1
+    return arr[0]
+  else
+    sort_array = arr.sort.reverse
+    return sort_array[0] + sort_array[1]
+  end
 end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
+  sort_array = arr.sort
+  j = arr.length - 1
+  i = 0
+  
+  while i < j do
+    if (sort_array[i] + sort_array[j]) == n
+      return true
+    elsif (sort_array[i] + sort_array[j]) > n
+      j-=1
+    else
+      i+=1
+    end
+  end
+  return false
 end
 
 # Part 2
